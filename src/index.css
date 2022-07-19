@@ -1,13 +1,51 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		font-family: 'Josefin Sans', system-ui, sans-serif;
+	}
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+#root {
+	position: relative;
+}
+.background-wrapper {
+	transition: all 0.25s linear;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: -1;
+}
+.background {
+	transition: all 0.25s linear;
+	width: 100%;
+	height: 100%;
+	mix-blend-mode: color-burn;
+	opacity: 0.2;
+	filter: contrast(500%) brightness(60%) grayscale(100%);
+	background: radial-gradient(farthest-corner at -50% -50%, rgba(82, 80, 87, 0.6), rgba(72, 72, 82, 0.75)), url(./assets/img/noise2.jpg);
+	background-size: auto, 400px;
+}
+
+.dark .background {
+	transition: all 0.25s linear;
+	opacity: 1;
+	mix-blend-mode: color-dodge;
+	filter: contrast(500%) brightness(60%) grayscale(100%);
+	background: radial-gradient(farthest-corner at -50% -50%, rgba(82, 80, 87, 0.25), rgba(72, 72, 82, 0.75)), url(./assets/img/noise2.jpg);
+	background-size: auto, 400px;
+}
+
+.backface-hidden {
+	backface-visibility: hidden;
 }
