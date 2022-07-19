@@ -10,7 +10,8 @@ export default function Todo() {
 
 	const [canSave, setCanSave] = React.useState(true)
 	const [tasks, setTasks] = React.useState(localStorage.getItem('Todo-App-Tasks') ? JSON.parse(localStorage.getItem('Todo-App-Tasks')) : [])
-	React.useEffect(() => {
+
+	const save = () => {
 		if (canSave) {
 			setCanSave(false)
 			setTimeout(() => {
@@ -18,7 +19,7 @@ export default function Todo() {
 				setCanSave(true)
 			}, 1000)
 		}
-	}, [tasks])
+	}
 
 	const [filter, setFilter] = React.useState(localStorage.getItem('Todo-App-Filter') ? JSON.parse(localStorage.getItem('Todo-App-Filter')) : 'All')
 	React.useEffect(() => {
@@ -27,9 +28,11 @@ export default function Todo() {
 
 	const createTask = (/** @type {any} */ title) => {
 		setTasks([{ id: nanoid(), title: title, completed: false }, ...tasks])
+		save()
 	}
 	const removeTask = (/** @type {string} */ id) => {
 		setTasks(tasks.filter((task) => task.id !== id))
+		save()
 	}
 	const toggleTask = (/** @type {string} */ id) => {
 		setTasks(
@@ -40,9 +43,11 @@ export default function Todo() {
 				return task
 			})
 		)
+		save()
 	}
 	const removeAll = () => {
 		setTasks(tasks.filter((task) => !task.completed))
+		save()
 	}
 	return (
 		<>
