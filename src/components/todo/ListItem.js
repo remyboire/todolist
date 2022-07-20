@@ -25,13 +25,7 @@ export const ListItem = (props) => {
 	}
 
 	return (
-		<Reorder.Item
-			value={value}
-			id={id}
-			style={{ boxShadow, y }}
-			className='relative first:rounded-t-sm	
-			hoverflow-hidden '
-		>
+		<Reorder.Item value={value} id={id} style={{ boxShadow, y }} className='relative first:rounded-t-sm'>
 			<motion.div
 				variants={item}
 				custom={show}
