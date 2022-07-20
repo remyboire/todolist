@@ -69,11 +69,16 @@ export default function App() {
 					</div>
 					<motion.div variants={item} className='mt-auto mb-5 text-center pt-10 text-sm'>
 						Challenge by{' '}
-						<a href='https://www.frontendmentor.io?ref=challenge' target='_blank'>
+						<a href='https://www.frontendmentor.io?ref=challenge' target='_blank' rel='canonical'>
 							Frontend Mentor
 						</a>
 						. Coded by{' '}
-						<a href='https://www.remy.boire.dev' target='_blank' className='text-accent border-2 border-accent p-1 rounded-md hover:bg-accent hover:text-white'>
+						<a
+							href='https://www.remy.boire.dev'
+							target='_blank'
+							rel='canonical'
+							className='text-accent border-2 border-accent p-1 rounded-md hover:bg-accent hover:text-white'
+						>
 							Rémy Boiré
 						</a>
 					</motion.div>
