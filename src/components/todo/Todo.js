@@ -11,15 +11,18 @@ export default function Todo() {
 	const [canSave, setCanSave] = React.useState(true)
 	const [tasks, setTasks] = React.useState(localStorage.getItem('Todo-App-Tasks') ? JSON.parse(localStorage.getItem('Todo-App-Tasks')) : [])
 
-	const save = () => {
+	const save = () => {}
+
+	React.useEffect(() => {
 		if (canSave) {
 			setCanSave(false)
+			localStorage.setItem('Todo-App-Tasks', JSON.stringify(tasks))
 			setTimeout(() => {
 				localStorage.setItem('Todo-App-Tasks', JSON.stringify(tasks))
 				setCanSave(true)
 			}, 1000)
 		}
-	}
+	}, [canSave, tasks])
 
 	const [filter, setFilter] = React.useState(localStorage.getItem('Todo-App-Filter') ? JSON.parse(localStorage.getItem('Todo-App-Filter')) : 'All')
 	React.useEffect(() => {
