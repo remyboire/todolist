@@ -4,8 +4,7 @@ import { ListItem } from './ListItem'
 import NoTaskMessage from './NoTaskMessage'
 
 function List(props) {
-	console.log('render List')
-	const { tasks, toggle, remove, setTasks, filter } = props
+	const { tasks, toggle, remove, setTasks, filter, save } = props
 
 	function doWeShowIf(completed) {
 		if (filter === 'Active' && completed) {
@@ -18,10 +17,17 @@ function List(props) {
 	}
 	return (
 		<>
-			<Reorder.Group axis='y' onReorder={setTasks} values={tasks} className='overflow-hidden'>
+			<Reorder.Group
+				axis='y'
+				onReorder={(tasks) => {
+					setTasks(tasks)
+				}}
+				values={tasks}
+				className='overflow-hidden'
+			>
 				<AnimatePresence>
 					{tasks.map((task) => {
-						return <ListItem value={task} key={'item' + task.id} toggle={toggle} remove={remove} show={doWeShowIf(task.completed)} />
+						return <ListItem value={task} key={'item' + task.id} toggle={toggle} remove={remove} show={doWeShowIf(task.completed)} save={save} />
 					})}
 					<NoTaskMessage tasks={tasks} filter={filter} />
 				</AnimatePresence>

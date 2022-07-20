@@ -6,51 +6,50 @@ import { nanoid } from 'nanoid'
 import { motion } from 'framer-motion'
 
 export default function Todo() {
-	console.log('render Todo')
+	const initialTasks = [
+		{ id: nanoid(), title: 'Complete online JavaScript course', completed: true },
+		{ id: nanoid(), title: 'Jog around the park 3x', completed: false },
+		{ id: nanoid(), title: '10 minutes meditation', completed: false },
+		{ id: nanoid(), title: 'Read for 1 hour', completed: false },
+		{ id: nanoid(), title: 'Pick up groceries', completed: false },
+		{ id: nanoid(), title: 'Complete Todo App on Frontend Mentor', completed: true },
+	]
 
-	const [canSave, setCanSave] = React.useState(true)
-	const [tasks, setTasks] = React.useState(localStorage.getItem('Todo-App-Tasks') ? JSON.parse(localStorage.getItem('Todo-App-Tasks')) : [])
+	// @ts-ignore
+	const [tasks, setTasks] = React.useState(localStorage.getItem('Todo-App-Tasks') ? JSON.parse(localStorage.getItem('Todo-App-Tasks')) : initialTasks)
 
-	const save = () => {}
+	const save = (item) => {
+		console.log('saving')
+		setTasks(item ? item : tasks)
+		localStorage.setItem('Todo-App-Tasks', JSON.stringify(item ? item : tasks))
+	}
 
-	React.useEffect(() => {
-		if (canSave) {
-			setCanSave(false)
-			localStorage.setItem('Todo-App-Tasks', JSON.stringify(tasks))
-			setTimeout(() => {
-				localStorage.setItem('Todo-App-Tasks', JSON.stringify(tasks))
-				setCanSave(true)
-			}, 1000)
-		}
-	}, [canSave, tasks])
-
+	// @ts-ignore
 	const [filter, setFilter] = React.useState(localStorage.getItem('Todo-App-Filter') ? JSON.parse(localStorage.getItem('Todo-App-Filter')) : 'All')
 	React.useEffect(() => {
 		localStorage.setItem('Todo-App-Filter', JSON.stringify(filter))
 	}, [filter])
 
 	const createTask = (/** @type {any} */ title) => {
-		setTasks([{ id: nanoid(), title: title, completed: false }, ...tasks])
-		save()
+		const newTasks = [{ id: nanoid(), title: title, completed: false }, ...tasks]
+		save(newTasks)
 	}
 	const removeTask = (/** @type {string} */ id) => {
-		setTasks(tasks.filter((task) => task.id !== id))
-		save()
+		const newTasks = tasks.filter((task) => task.id !== id)
+		save(newTasks)
 	}
 	const toggleTask = (/** @type {string} */ id) => {
-		setTasks(
-			tasks.map((task) => {
-				if (task.id === id) {
-					task.completed = !task.completed
-				}
-				return task
-			})
-		)
-		save()
+		const newTasks = tasks.map((task) => {
+			if (task.id === id) {
+				task.completed = !task.completed
+			}
+			return task
+		})
+		save(newTasks)
 	}
 	const removeAll = () => {
-		setTasks(tasks.filter((task) => !task.completed))
-		save()
+		const newTasks = tasks.filter((task) => !task.completed)
+		save(newTasks)
 	}
 	return (
 		<>
@@ -72,7 +71,7 @@ export default function Todo() {
 					transition-all duration-500
 					border border-1 border-[#E3E4F1] dark:border-[#393A4B] '
 			>
-				<List tasks={tasks} toggle={toggleTask} remove={removeTask} setTasks={setTasks} filter={filter} />
+				<List tasks={tasks} toggle={toggleTask} remove={removeTask} setTasks={setTasks} filter={filter} save={save} />
 				<Footer tasks={tasks} removeAll={removeAll} filter={filter} setFilter={setFilter} />
 			</motion.div>
 		</>

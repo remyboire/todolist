@@ -5,9 +5,7 @@ import Checkbox from './../checkbox/checkbox'
 import Button from '../buttons/Button'
 
 export const ListItem = (props) => {
-	console.log('render ListItem')
-
-	const { remove, toggle, value, show } = props
+	const { remove, toggle, value, show, save } = props
 	const { id, title, completed } = value
 
 	const y = useMotionValue(0)
@@ -25,7 +23,7 @@ export const ListItem = (props) => {
 	}
 
 	return (
-		<Reorder.Item value={value} id={id} style={{ boxShadow, y }} className='relative first:rounded-t-sm'>
+		<Reorder.Item value={value} id={id} style={{ boxShadow, y }} className='relative first:rounded-t-sm' onDragEnd={() => save()}>
 			<motion.div
 				variants={item}
 				custom={show}
@@ -46,7 +44,7 @@ export const ListItem = (props) => {
 					outline outline-1 outline-[#E3E4F1] dark:outline-[#393A4B]
 					bg-white dark:bg-[#25273D]	
 					cursor-move flex content-center items-center overflow-hidden
-					transition-colors duration-500
+					transition-all duration-500 
 					`}
 				>
 					<Checkbox checked={completed} onChange={() => toggle(id)} disabled={show} />
