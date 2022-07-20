@@ -74,7 +74,7 @@ export default function App() {
 						</a>
 						. Coded by{' '}
 						<a
-							href='https://www.remy.boire.dev'
+							href='https://remy.boire.dev/?mtm_campaign=todo-list'
 							target='_blank'
 							rel='noreferrer'
 							className='text-accent border-2 border-accent p-1 rounded-md hover:bg-accent hover:text-white'
