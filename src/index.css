@@ -33,7 +33,7 @@ body {
 	mix-blend-mode: color-burn;
 	opacity: 0.2;
 	filter: contrast(500%) brightness(60%) grayscale(100%);
-	background: radial-gradient(farthest-corner at -50% -50%, rgba(82, 80, 87, 0.6), rgba(72, 72, 82, 0.75)), url(./assets/img/noise2.jpg);
+	background: radial-gradient(farthest-corner at -50% -50%, rgba(82, 80, 87, 0.6), rgba(72, 72, 82, 0.75)), url(./assets/img/noise.jpg);
 	background-size: auto, 400px;
 }
 
@@ -42,7 +42,7 @@ body {
 	opacity: 1;
 	mix-blend-mode: color-dodge;
 	filter: contrast(500%) brightness(60%) grayscale(100%);
-	background: radial-gradient(farthest-corner at -50% -50%, rgba(82, 80, 87, 0.25), rgba(72, 72, 82, 0.75)), url(./assets/img/noise2.jpg);
+	background: radial-gradient(farthest-corner at -50% -50%, rgba(82, 80, 87, 0.25), rgba(72, 72, 82, 0.75)), url(./assets/img/noise.jpg);
 	background-size: auto, 400px;
 }
 
