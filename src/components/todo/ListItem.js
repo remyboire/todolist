@@ -47,7 +47,7 @@ export const ListItem = (props) => {
 					transition-all duration-500 
 					`}
 				>
-					<Checkbox checked={completed} onChange={() => toggle(id)} disabled={show} />
+					<Checkbox checked={completed} onChange={() => toggle(id)} disabled={show} name='done' />
 					<p
 						className={`
 					${completed ? `text-[#d1d2da] dark:text-[#4D5067] after:bg-[#d1d2da] dark:after:bg-[#4D5067] after:w-full` : `after:w-0 dark:after:bg-[#C8CBE7]`} 

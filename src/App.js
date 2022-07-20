@@ -45,16 +45,16 @@ export default function App() {
 					<header className='flex mb-5 items-center'>
 						<div className='overflow-hidden mr-auto'>
 							<motion.h1 className='text-4xl font-bold  pt-3  text-accent dark:text-white transition-colors duration-500 inline-flex'>
-								<motion.div variants={item} className='mr-2'>
+								<motion.span variants={item} className='mr-2'>
 									T
-								</motion.div>
-								<motion.div variants={item} className='mr-2'>
+								</motion.span>
+								<motion.span variants={item} className='mr-2'>
 									O
-								</motion.div>
-								<motion.div variants={item} className='mr-2'>
+								</motion.span>
+								<motion.span variants={item} className='mr-2'>
 									D
-								</motion.div>
-								<motion.div variants={item}>O</motion.div>
+								</motion.span>
+								<motion.span variants={item}>O</motion.span>
 							</motion.h1>
 						</div>
 						<motion.div variants={item} className='text-4xl font-bold  pt-1  text-accent dark:text-white transition-colors duration-500'>

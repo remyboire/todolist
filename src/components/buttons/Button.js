@@ -20,7 +20,7 @@ export default function Button(props) {
                         `}
 			onClick={onClick}
 		>
-			<motion.div
+			<motion.span
 				initial={{
 					rotate: cross ? '-45deg' : '-90deg',
 					scale: 1,
@@ -38,7 +38,7 @@ export default function Button(props) {
 				className='block w-full h-full rounded-full hover:border-accent'
 			>
 				<div className='text-3xl font-light leading-[21px] align-middle text-center'>+</div>
-			</motion.div>
+			</motion.span>
 		</button>
 	)
 }

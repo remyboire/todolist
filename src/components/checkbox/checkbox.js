@@ -2,7 +2,7 @@ import React from 'react'
 import './checkbox.css'
 
 export default function Checkbox(props) {
-	const { checked, onChange, disabled } = props
+	const { checked, onChange, disabled, name } = props
 	return (
 		<div className='ml-2 mr-3'>
 			<input
@@ -19,8 +19,8 @@ export default function Checkbox(props) {
 			focus:outline-2
 			transition-colors duration-500
 			before:transition-colors before:duration-500
-
 			'
+				name={name}
 				disabled={disabled}
 			/>
 		</div>
