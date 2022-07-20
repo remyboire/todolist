@@ -53,12 +53,12 @@ Users should be able to:
 
 ### What I learned
 
-This project was nice to learn more about framer-motion wich I found really amazing. I love adding a lot of motion to this project.
-It was also the first time I used tailwind and I'm blown away by the simplicity of the framework. I only used css to style the checkbox as it seemed to be more efficient but I could have use tailwind as well. I also change the background to something a bit more personal.
+This project was pleasant to learn more about framer-motion, which I found really amazing. I love adding a lot of motion to this project.
+It was also the first time I used tailwind, and I'm blown away by the simplicity of the framework. I only used CSS to style the checkbox as it seemed to be more efficient, but I could have use tailwind as well. I also change the background to something a bit more personal.
 
 ### Continued development
 
-I would love to add a pan option like in iOs to delete items from the list. I saw it would be possible with framer-motion, it would be nice to take some time to look at it.
+I would love to add a pan option like in iOS to delete items from the list. It would be possible with framer-motion, and it would be nice to take some time to look at it.
 
 ### Useful resources
 
